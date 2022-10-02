@@ -1,0 +1,74 @@
+// create database:
+
+create database world;
+
+// creae all tables:
+
+create table Country(
+  CountryId int primary key auto_increment,
+  name varchar(255)
+);
+
+create table City(
+  CityId int primary key auto_increment,
+  name varchar(255),
+  population int,
+  CountryId int,
+  FOREIGN KEY (CountryId) REFERENCES Country(CountryId)
+);
+
+create table Building(
+  BuildingId int primary key auto_increment,
+  name varchar(255),
+  Floors int,
+  CityId int,
+  FOREIGN KEY (CityId) REFERENCES City(CityId)
+);
+
+// insert data into tables
+insert into Country(name) value
+('Pakistan'),
+('India'),
+('Canada'),
+('Kenya');
+
+insert into City(name,population,CountryId) value
+('Karachi', 100, 1),
+('Islamabad', 150, 1),
+('Peshawar', 200, 1),
+('Pune', 100, 2),
+('Delhi', 200, 2),
+('Mumbai', 250, 2),
+('Toronto', 100, 3),
+('Ottawa', 100, 3),
+('Calgary', 50, 3),
+('Maralal', 50, 4),
+('Nairobi', 50, 4),
+('Kisumu', 50, 4);
+
+insert into Building(name,Floors,CityId) value
+('Fortune Tower',7,1),
+('Mega Tower',8,2),
+('Hyper Star',9,3),
+('Kailasam',6,4),
+('Vrindavanam',9,5),
+('Keerthi',5,6),
+('CN Tower',8,7),
+('Monique Corriveau Library',9,8),
+('West Edmonton Mall',9,9);
+
+// PART 1:
+
+SELECT Country.CountryId, Country.name
+FROM Country 
+INNER JOIN City ON Country.CountryId=City.CountryId
+GROUP BY Country.CountryId
+having SUM(City.population) > 400;
+
+// PART 2:
+
+SELECT distinct Country.name
+FROM Country 
+INNER JOIN City ON Country.CountryId=City.CountryId
+LEFT JOIN Building ON City.CityId=Building.CityId
+WHERE Building.BuildingId  IS NULL;
