@@ -1,23 +1,18 @@
-import Model.*;
-import dao.OrderDao;
+import com.company.foodorderingsystem.model.*;
+import com.company.foodorderingsystem.dao.OrderDao;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.internal.matchers.Or;
 import org.mockito.runners.MockitoJUnitRunner;
-import service.OrderService;
-import view.FoodOrderingSystemView;
+import com.company.foodorderingsystem.service.OrderService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)

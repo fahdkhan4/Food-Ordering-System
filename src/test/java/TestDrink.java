@@ -1,7 +1,5 @@
-import Model.Cuisine;
-import Model.Cuisines_type;
-import Model.Drink;
-import dao.DrinkDao;
+import com.company.foodorderingsystem.model.Drink;
+import com.company.foodorderingsystem.dao.DrinkDao;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import service.DrinkService;
+import com.company.foodorderingsystem.service.DrinkService;
 
 import java.util.ArrayList;
 import java.util.List;
